@@ -6,7 +6,5 @@
         public string Namn { get; set; }
         public string Beskrivning { get; set; }
         public decimal Pris { get; set; }
-
-        public ICollection<Bokning> Bokningar { get; set; }
     }
 }

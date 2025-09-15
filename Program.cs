@@ -3,6 +3,7 @@ using Bokningsystem.API.Repositories;
 using Bokningsystem.API.Services;
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // --- Alla dina services, DB, Repositories, Validators osv ---
@@ -16,7 +17,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IBokningRepository, BokningRepository>();
 builder.Services.AddScoped<IBokningService, BokningService>();
-builder.Services.AddHttpClient<ExternalApiService>();
+builder.Services.AddScoped<IAnvandareRepository, AnvandareRepository>();
+builder.Services.AddScoped<IAnvandareService, AnvandareService>();
+builder.Services.AddScoped<ITjanstRepository, TjanstRepository>();
+builder.Services.AddScoped<ITjanstService, TjanstService>();
 
 builder.Services.AddControllers();
 
